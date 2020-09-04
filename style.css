@@ -154,3 +154,35 @@ body {
   width: 5rem;
   height: 5rem;
 }
+
+@keyframes hideAndReview {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeInOut {
+  animation: hideAndReview 0.5s ease-in-out;
+}
+
+@keyframes fadeIO {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeOutIn {
+  animation: fadeIO 0.5s ease-in-out;
+}
