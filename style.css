@@ -89,6 +89,13 @@ body {
   transition: all 1s cubic-bezier(0.15, 0.7, 0.44, 0.96) 0.5s;
 }
 
+.anime-desc {
+  position: absolute;
+  left: 21%;
+  top: 0;
+  transition: all 0.5s linear;
+}
+
 .indicator {
   float: left;
   color: #ececec;
@@ -139,7 +146,7 @@ body {
 .hide {
   opacity: 0;
   pointer-events: none;
-  transform: translateY(150px);
+  /* transform: translateY(150px); */
   /* transition: all 1s cubic-bezier(0.15, 0.7, 0.44, 0.96); */
 }
 

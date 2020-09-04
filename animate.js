@@ -1,7 +1,8 @@
 $(document).ready(() => {
   //start up animation
   const middleIcon = $(".mid-svg");
-  const description = $(".description");
+  const description = $(".old");
+  const hideDesc = $(".anime-desc");
 
   // middleIcon.removeClass("hide");
   description.removeClass("hide");
@@ -28,7 +29,9 @@ $(document).ready(() => {
   aboutLink.on("mouseover", () => {
     middleIcon.css("transform", "translate(-50%, -50%) rotate(180deg)");
     cursor.addClass("expand");
-    description.text("Click it! I know you want to learn more about me!");
+    hideDesc.text("Click it! I know you want to learn more about me!");
+    description.addClass("hide");
+    hideDesc.removeClass("hide");
     aboutLink.css("color", "#ececec");
   });
   aboutLink.on("mouseleave", () => {
@@ -36,17 +39,22 @@ $(document).ready(() => {
     middleIcon.css("transform", "translate(-50%, -50%) rotate(360deg)");
     description.text("A young man that loves maths, writing and developing.");
     aboutLink.css("color", "#f2a365");
+    description.removeClass("hide");
+    hideDesc.addClass("hide");
   });
 
   const createLinkAnime = (query, text) => {
     const link = $(query);
     link.on("mouseover", (e) => {
       cursor.addClass("expand");
-      description.text(text);
+      hideDesc.removeClass("hide");
+      description.addClass("hide");
+      hideDesc.text(text);
     });
     link.on("mouseleave", (e) => {
       cursor.removeClass("expand");
-      description.text("A young man that loves maths, writing and developing.");
+      description.removeClass("hide");
+      hideDesc.addClass("hide");
     });
   };
 
@@ -70,8 +78,10 @@ $(document).ready(() => {
     "My name is Dongshen Wu or David I'm a Winchester College student."
   );
 
-  createLinkAnime(
-    ".nav-icon",
-    "A young man that loves maths, writing and developing."
-  );
+  $(".nav-icon").on("mouseover", (e) => {
+    cursor.addClass("expand");
+  });
+  $(".nav-icon").on("mouseleave", (e) => {
+    cursor.removeClass("expand");
+  });
 });
