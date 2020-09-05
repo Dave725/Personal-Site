@@ -1,20 +1,24 @@
+<!-- #30475e -->
 <!DOCTYPE html>
-<!-- TODO: morphing animation performance (or maybe instead of that we can use rotate with reverse spring cubic bezier and change img src/ svg d sametime) -->
-<!-- TODO: the about page below landing page -->
+<!-- TODO: resolve the bottom navbar problem -->
+<!-- TODO: Refactor all codes and tidy up with react -->
 <html lang="en">
   <head>
+    <!-- -------------------- meta info -------------------- -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dongshen Wu | Student Blogger Freelancer</title>
 
+    <!-- -------------------- cdn links -------------------- -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Source+Sans+Pro&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Source+Sans+Pro&family=Dancing+Script:wght@700&display=swap"
       rel="stylesheet"
     />
     <script
@@ -41,7 +45,7 @@
         <div>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" id="cont-link" href="#">Say Hi</a>
+              <a class="nav-link" id="cont-link" href="#contact">Say Hi</a>
             </li>
           </ul>
         </div>
@@ -79,21 +83,21 @@
       <div class="flex-container navbar navbar-dark">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link nav-icon" href="./blogpage.html"
+            <a class="nav-link nav-icon" href="https://dribbble.com/"
               ><i class="fab fa-dribbble"></i
             ></a>
           </li>
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link nav-icon" href="./blogpage.html"
+            <a class="nav-link nav-icon" href="https://www.wechat.com/en/"
               ><i class="fab fa-weixin"></i
             ></a>
           </li>
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link nav-icon" href="./blogpage.html"
+            <a class="nav-link nav-icon" href="https://twitter.com/?lang=en-gb"
               ><i class="fab fa-twitter"></i
             ></a>
           </li>
@@ -101,7 +105,7 @@
       </div>
 
       <!-- -------------------- bottom nav bars -------------------- -->
-      <div class="navbar fixed-bottom navbar-dark">
+      <nav class="navbar fixed-bottom navbar-dark">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a class="nav-link" id="blog-link" href="./blogpage.html">Blogs</a>
@@ -109,7 +113,7 @@
         </ul>
         <ul class="navbar-nav mx-auto nav-arrow">
           <li class="nav-item">
-            <a class="nav-link" id="about-link" href=""
+            <a class="nav-link" id="about-link" href="#about"
               ><i class="fas fa-arrow-down fa-lg"></i
             ></a>
           </li>
@@ -119,12 +123,184 @@
             <a class="nav-link" id="proj-link" href="./projpage.html">Projs</a>
           </li>
         </ul>
-      </div>
+      </nav>
     </section>
 
     <!-- -------------------- About  -------------------- -->
-    <section id="aboutPage">
-      <div></div>
+    <section class="container-fluid" id="about">
+      <div class="row">
+        <div class="col-6-sm text-block">
+          <h2>About Me</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam. Lorem ipssidfhishaf.
+          </p>
+          <a href="#education"
+            ><button style="z-index: 2" class="btn btn-outline-light btn-md">
+              Read More
+            </button></a
+          >
+        </div>
+        <div class="col-sm">
+          <img class="profile-img center" src="./images/profile.jpg" alt="" />
+        </div>
+      </div>
     </section>
+
+    <!-- -------------------- education -------------------- -->
+    <section id="education" class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6">
+          <img
+            class="center"
+            src="./images/undraw_road-to-knowledge.svg"
+            alt=""
+          />
+        </div>
+        <div class="col-sm-6 text-block">
+          <h2>Current Education</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam. Lorem ipsum Sit tenetur fugiat at quaerat quas
+            rerum explicabo itaque?Lorem ipsum dolor sit amet consectetur
+            adipisicing elit.
+          </p>
+          <a href="#hobbies"
+            ><button class="btn btn-md btn-outline-dark">Keep going!</button></a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- -------------------- hobbies -------------------- -->
+    <section id="hobbies">
+      <div>
+        <h2 style="color: #f2a365; padding-left: 5rem">
+          Some of my interest and skills
+        </h2>
+        <p class="text-muted" style="padding-left: 5rem">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </p>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-4">
+            <img src="./images/undraw_golf_neir.svg" alt="" />
+          </div>
+          <div class="col-4 hobby-text">
+            <h5>Golf</h5>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Quibusdam vero error libero esse ab cupiditate commodi modi.
+              Quisquam odit dolore.
+            </p>
+          </div>
+          <div class="col-4">
+            <img src="./images/undraw_photo_session_clqr.svg" alt="" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4 hobby-text">
+            <h5>Writing</h5>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Quibusdam vero error libero esse ab cupiditate commodi modi.
+              Quisquam odit dolore.
+            </p>
+          </div>
+          <div class="col-4">
+            <img src="./images/undraw_mathematics_4otb.svg" alt="" />
+          </div>
+          <div class="col-4 hobby-text">
+            <h5>Photography</h5>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Quibusdam vero error libero esse ab cupiditate commodi modi.
+              Quisquam odit dolore.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <img src="./images/undraw_researching_22gp.svg" alt="" />
+          </div>
+          <div class="col-4 hobby-text">
+            <h5>Developing</h5>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Quibusdam vero error libero esse ab cupiditate commodi modi.
+              Quisquam odit dolore.
+            </p>
+          </div>
+          <div class="col-4">
+            <img src="./images/undraw_developer_activity_bv83.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="quote">
+      <img src="./images/quote.svg" alt="quote icon" />
+      <h5>
+        Is it not delightful to have friends coming from distant quarters?
+      </h5>
+    </div>
+
+    <!-- -------------------- contact -------------------- -->
+    <section id="contact">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-6">
+            <div class="contact-box">
+              <h2>So come say hi!</h2>
+              <p class="text-muted">
+                I always love to hear from you, no matter who you are!
+              </p>
+              <h5>Email</h5>
+              <p>JohnDoe@foobar.com</p>
+              <h5>Phone</h5>
+              <p>(044) 12345678</p>
+              <h5>Address</h5>
+              <p>Null Pointer Exception</p>
+              <button
+                class="btn btn-outline-light btn-md"
+                style="color: #f2a365; border-color: #f2a365"
+              >
+                Copy Email Address!
+              </button>
+            </div>
+          </div>
+          <div class="col-6">
+            <img src="./images/mailbox.svg" alt="mailbox" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="subscribe">
+      <img src="./images/mail.svg" alt="" />
+      <h2>Stay Tuned.</h2>
+      <p style="margin-bottom: 2.5rem">
+        Subscribe for exciting new updates! We'll never share your email with
+        anyone else.
+      </p>
+      <form action="/" method="POST" class="form-inline">
+        <div class="form-group mx-auto">
+          <input
+            type="email"
+            class="form-control"
+            id="inputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="Your fancy email"
+          />
+          <button type="submit" class="btn btn-outline-primary">Submit</button>
+        </div>
+      </form>
+    </section>
+    <footer></footer>
   </body>
 </html>

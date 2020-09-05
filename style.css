@@ -1,18 +1,23 @@
 html {
-  height: 100vh;
-  overflow: hidden;
-  /* font-family: "Montserrat",sans-serif; */
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
+  scroll-behavior: smooth;
+  max-width: 100vw;
+  height: 100vh;
 }
 
 body {
   background-color: #222831;
-  background-image: url("./images/white-diamond-dark.png");
+  /* background-image: url("./images/white-diamond-dark.png"); */
   height: 100%;
   position: relative;
   cursor: none;
   color: #ececec;
+}
+
+h2 {
+  color: #f2a365;
+  font-size: 3rem;
 }
 
 /* landing page */
@@ -86,7 +91,7 @@ body {
   line-height: 1.4;
   display: inline;
   opacity: 0.75;
-  transition: all 1s cubic-bezier(0.15, 0.7, 0.44, 0.96) 0.5s;
+  transition: all 0.5s cubic-bezier(0.15, 0.7, 0.44, 0.96) 0.5s;
 }
 
 .anime-desc {
@@ -118,7 +123,7 @@ body {
   top: 20%;
 }
 .nav-icon {
-  padding: 1rem 2rem;
+  padding: 1rem;
 }
 
 /* Cursor Activities */
@@ -129,6 +134,7 @@ body {
   border-radius: 50%;
   z-index: 1;
   position: absolute;
+  pointer-events: none;
   transition: all 0.3s cubic-bezier(0.15, 0.7, 0.44, 0.96) 0.01s;
 }
 
@@ -140,6 +146,7 @@ body {
   border-radius: 50%;
   z-index: 1;
   position: absolute;
+  pointer-events: none;
   transition: all 0.1s cubic-bezier(0.15, 0.7, 0.44, 0.96);
 }
 
@@ -155,7 +162,9 @@ body {
   height: 5rem;
 }
 
-@keyframes hideAndReview {
+/* icon animation */
+
+@keyframes fadeOI {
   0% {
     opacity: 1;
   }
@@ -168,7 +177,7 @@ body {
 }
 
 .fadeInOut {
-  animation: hideAndReview 0.5s ease-in-out;
+  animation: fadeOI 0.5s ease-in-out;
 }
 
 @keyframes fadeIO {
@@ -185,4 +194,123 @@ body {
 
 .fadeOutIn {
   animation: fadeIO 0.5s ease-in-out;
+}
+
+/* about  */
+#about {
+  width: 100%;
+  background-image: linear-gradient(to bottom right, #222831 50%, #ececec 50%);
+  color: #ececec;
+}
+
+.text-block {
+  padding: 8rem;
+  line-height: 2;
+  width: 50%;
+}
+.text-block h2 {
+  color: #f2a365;
+  margin: 1rem 0;
+}
+.text-block p {
+  margin: 2rem 0;
+}
+
+.profile-img {
+  height: 500px;
+}
+
+.center {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#education {
+  width: 100%;
+  background-color: #ececec;
+  color: #222831;
+}
+
+#hobbies {
+  padding: 5rem;
+  width: 100%;
+  background-color: #ececec;
+  color: #222831;
+}
+
+#hobbies .container-fluid {
+  padding: 5rem;
+}
+
+.container-fluid .col-4 {
+  height: 15rem;
+}
+
+.hobby-text {
+  background-color: #30475e;
+  opacity: 0.9;
+  color: #ececec;
+  line-height: 2;
+}
+
+.hobby-text h5 {
+  font: 2rem;
+  padding: 0.5rem;
+  margin-top: 0.7rem;
+}
+
+.hobby-text p {
+  font: 1.5rem;
+  padding: 0.5rem;
+}
+
+.text-muted {
+  padding: 0.7rem 0 0;
+}
+
+#quote {
+  text-align: center;
+  background-color: #ececec;
+  color: #222831;
+  padding: 5rem;
+}
+#quote h5 {
+  margin-top: 3rem;
+  font-size: 2rem;
+  opacity: 0.9;
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+}
+
+#contact {
+  color: #222831;
+  background-image: linear-gradient(to top left, #222831 50%, #ececec 50%);
+}
+
+#contact h5 {
+  padding: 2rem 0 0;
+}
+
+#contact .col-6 {
+  padding: 8rem 8rem 6rem;
+}
+
+#contact button {
+  margin-top: 2rem;
+}
+
+/* .contact-box {
+  position: relative;
+  left: 5rem;
+} */
+
+#subscribe {
+  padding: 5rem 5rem 10rem;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-direction: column;
 }
