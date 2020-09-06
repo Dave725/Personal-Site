@@ -45,7 +45,7 @@ $(document).ready(() => {
   $(".landing-text").removeClass("hide");
 
   // cursor animation
-  // const cursor = $(".cursor");
+  const cursor = $(".cursor");
 
   // $(document).on("mousemove", (e) => {
   //   cursor.css(
@@ -61,7 +61,6 @@ $(document).ready(() => {
 
   // links animation
   function typewritter(element, txt) {
-    console.log("hi");
     let i = 0;
     const speed = 50;
     $("p.description").html = "";
@@ -167,6 +166,15 @@ $(document).ready(() => {
       $("html").css("overflow-x", "hidden");
     }
     console.log(activeContact);
+  });
+
+  $("nav a").click((e) => {
+    activeContact = false;
+    gsap.to(".line1", 1, { rotate: 0, y: 0, ease: "elastic.out" });
+    gsap.to(".line2", 1, { rotate: -0, y: 0, ease: "elastic.out" });
+    gsap.to(".menu", 0.8, { clipPath: "circle(50px at 110% 110%)" });
+    $("html").css("overflow", "auto");
+    $("html").css("overflow-x", "hidden");
   });
 
   $(window).scroll(function () {
