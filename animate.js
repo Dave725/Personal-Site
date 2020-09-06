@@ -35,8 +35,8 @@ const star = svgs[4].path;
 $(document).ready(() => {
   //start up animation
   const middleIcon = $(".mid-svg");
-  const description = $(".old");
-  const hideDesc = $(".anime-desc");
+  const description = $("p.description");
+  // const hideDesc = $(".anime-desc");
 
   // middleIcon.removeClass("hide");
   description.removeClass("hide");
@@ -45,54 +45,72 @@ $(document).ready(() => {
   $(".landing-text").removeClass("hide");
 
   // cursor animation
-  const cursor = $(".cursor");
+  // const cursor = $(".cursor");
 
-  $(document).on("mousemove", (e) => {
-    $(".cursor-circle").css(
-      "transform",
-      `translate(-50%,-50%) translate(${e.pageX}px,${e.pageY}px)`
-    );
-    cursor.css(
-      "transform",
-      `translate(-50%,-50%) translate(${e.pageX}px,${e.pageY}px )`
-    );
-  });
+  // $(document).on("mousemove", (e) => {
+  //   cursor.css(
+  //     "transform",
+  //     `translate(-50%,-50%) translate(${e.pageX}px,${e.pageY}px )`
+  //   );
+  // });
+
+  // $(".cursor-circle").css(
+  //   "transform",
+  //   `translate(-50%,-50%) translate(${e.pageX}px,${e.pageY}px)`
+  // );
 
   // links animation
+  function typewritter(element, txt) {
+    console.log("hi");
+    let i = 0;
+    const speed = 50;
+    $("p.description").html = "";
+    typeWriter();
+    function typeWriter() {
+      if (i < txt.length) {
+        $("p.description").html += txt.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+  }
   const aboutLink = $("#about-link");
   aboutLink.on("mouseover", () => {
     middleIcon.css("transform", "translate(-50%, -50%) rotate(180deg)");
     cursor.addClass("expand");
-    hideDesc.text("Click it! I know you want to learn more about me!");
-    description.addClass("hide");
-    hideDesc.removeClass("hide");
+    typewritter(
+      description,
+      "Click it! I know you want to learn more about me!"
+    );
     aboutLink.css("color", "#ececec");
   });
   aboutLink.on("mouseleave", () => {
     cursor.removeClass("expand");
     middleIcon.css("transform", "translate(-50%, -50%) rotate(360deg)");
-    description.text("A young man that loves maths, writing and developing.");
+    typewritter(
+      description,
+      "A young man that loves maths, writing and developing."
+    );
     aboutLink.css("color", "#f2a365");
-    description.removeClass("hide");
-    hideDesc.addClass("hide");
   });
 
   const svg = $(".svg");
   const createLinkAnime = (query, text, path) => {
     const link = $(query);
+    // FIXME: add typewritter effect to replace fading.
     link.on("mouseover", (e) => {
       cursor.addClass("expand");
-      hideDesc.removeClass("hide");
-      description.addClass("hide");
-      hideDesc.text(text);
+      typewritter(description, text);
       svg.addClass("fadeInOut");
       svg.removeClass("fadeOutIn");
       setTimeout(() => svg.attr("d", path), 250);
     });
     link.on("mouseleave", (e) => {
       cursor.removeClass("expand");
-      description.removeClass("hide");
-      hideDesc.addClass("hide");
+      typewritter(
+        description,
+        "A young man that loves maths, writing and developing."
+      );
       svg.removeClass("fadeInOut");
       svg.addClass("fadeOutIn");
       setTimeout(() => svg.attr("d", upTrig), 250);
@@ -128,5 +146,36 @@ $(document).ready(() => {
   });
   $(".nav-icon").on("mouseleave", (e) => {
     cursor.removeClass("expand");
+  });
+
+  const burger = $(".burger");
+  let activeContact = false;
+
+  burger.click((e) => {
+    if (!activeContact) {
+      activeContact = true;
+      gsap.to(".line1", 1, { rotate: 45, y: 5, ease: "elastic.out" });
+      gsap.to(".line2", 1, { rotate: -45, y: -5, ease: "elastic.out" });
+      gsap.to(".menu", 1, { clipPath: "circle(2500px at 110% 110%)" });
+      $("html").css("overflow", "hidden");
+    } else {
+      activeContact = false;
+      gsap.to(".line1", 1, { rotate: 0, y: 0, ease: "elastic.out" });
+      gsap.to(".line2", 1, { rotate: -0, y: 0, ease: "elastic.out" });
+      gsap.to(".menu", 0.8, { clipPath: "circle(50px at 110% 110%)" });
+      $("html").css("overflow", "auto");
+      $("html").css("overflow-x", "hidden");
+    }
+    console.log(activeContact);
+  });
+
+  $(window).scroll(function () {
+    const aboutPos =
+      document.querySelector("#about-link").getBoundingClientRect().top / 0.5;
+    if (aboutPos < window.innerHeight) {
+      burger.css("transform", "translateY(0%)");
+    } else {
+      burger.css("transform", "translateY(300%)");
+    }
   });
 });
